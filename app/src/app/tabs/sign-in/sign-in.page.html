@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tab 1
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 1</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <form [formGroup]="form">
+    <ion-item>
+      <ion-input label="Email" formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="password" label="Hasło" formControlName="password"></ion-input>
+    </ion-item>
+    <ion-button (click)="signIn()">Zaloguj się</ion-button>
+  </form>
+</ion-content>

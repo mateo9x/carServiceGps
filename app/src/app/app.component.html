@@ -1,3 +1,12 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+<!--  <ion-toast-->
+<!--    [isOpen]="showToast"-->
+<!--    message="This toast will close in 5 seconds"-->
+<!--    [duration]="5000"-->
+<!--    (didDismiss)="setOpen(false)"-->
+<!--  ></ion-toast>-->
+  <ion-router-outlet *ngIf="user; else nonAuthenticated"></ion-router-outlet>
+  <ng-template #nonAuthenticated>
+    <ion-router-outlet name="nonAuthenticated"></ion-router-outlet>
+  </ng-template>
 </ion-app>
