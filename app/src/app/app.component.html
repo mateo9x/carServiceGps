@@ -1,11 +1,24 @@
 <ion-app>
-<!--  <ion-toast-->
-<!--    [isOpen]="showToast"-->
-<!--    message="This toast will close in 5 seconds"-->
-<!--    [duration]="5000"-->
-<!--    (didDismiss)="setOpen(false)"-->
-<!--  ></ion-toast>-->
-  <ion-router-outlet *ngIf="user; else nonAuthenticated"></ion-router-outlet>
+  <!--  <ion-toast-->
+  <!--    [isOpen]="showToast"-->
+  <!--    message="This toast will close in 5 seconds"-->
+  <!--    [duration]="5000"-->
+  <!--    (didDismiss)="setOpen(false)"-->
+  <!--  ></ion-toast>-->
+  <ng-container *ngIf="user; else nonAuthenticated">
+    <side-menu (logoutEmitter)="logout()"></side-menu>
+    <div class="ion-page" id="main-content">
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+          <ion-title>Menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-router-outlet></ion-router-outlet>
+    </div>
+  </ng-container>
   <ng-template #nonAuthenticated>
     <ion-router-outlet name="nonAuthenticated"></ion-router-outlet>
   </ng-template>
