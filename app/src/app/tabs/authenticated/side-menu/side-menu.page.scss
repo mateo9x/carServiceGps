@@ -1,3 +1,18 @@
-li {
-  padding: 10px;
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: auto;
+}
+
+.container > * {
+   display: flex;
+   flex-direction: column;
+ }
+
+.nav-link, .nav-link:active, .nav-link:visited {
+  font-weight: bold;
+  text-decoration: none;
+  margin-bottom: 20px;
+  text-transform: uppercase;
 }

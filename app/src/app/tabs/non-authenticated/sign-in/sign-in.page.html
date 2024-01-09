@@ -1,25 +1,29 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
+<ion-content class="content" [fullscreen]="true">
   <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
+    <ion-title size="large" class="title">Zaloguj się</ion-title>
   </ion-header>
 
   <form [formGroup]="form">
     <ion-item>
-      <ion-input label="Email" formControlName="email"></ion-input>
+      <ion-input type="email" label="Email" labelPlacement="floating" formControlName="email" [clearOnEdit]="true" ></ion-input>
     </ion-item>
+    <div class="error-message" *ngIf="hasFormError('email', 'required')">
+      <ion-icon name="information-circle-outline"></ion-icon>
+      <span>Pole wymagane</span>
+    </div>
     <ion-item>
-      <ion-input type="password" label="Hasło" formControlName="password"></ion-input>
+      <ion-input type="password" labelPlacement="floating" label="Hasło" formControlName="password" [clearOnEdit]="true" ></ion-input>
     </ion-item>
+    <div class="error-message" *ngIf="hasFormError('password', 'required')">
+      <ion-icon name="information-circle-outline"></ion-icon>
+      <span>Pole wymagane</span>
+    </div>
+    <div class="links-container">
+      <a [routerLink]="[{ outlets: { nonAuthenticated: ['sign-up'] } }]" class="nav-link">Nie posiadasz konta?
+        Zarejestruj się</a>
+      <a [routerLink]="[{ outlets: { nonAuthenticated: ['reset-password'] } }]" class="nav-link">Nie pamiętasz
+        hasła?</a>
+    </div>
     <ion-button (click)="signIn()">Zaloguj się</ion-button>
   </form>
 </ion-content>
