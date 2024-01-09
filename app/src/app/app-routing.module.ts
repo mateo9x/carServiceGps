@@ -1,9 +1,11 @@
 import {inject, NgModule} from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import {SignInPage} from './tabs/non-authenticated/sign-in/sign-in.page';
 import {AppGuard} from './config/app.guard';
 import {MainPage} from './tabs/authenticated/main/main.page';
 import {MyVehiclesPage} from './tabs/authenticated/my-vehicles/my-vehicles.page';
+import {SignUpPage} from './tabs/non-authenticated/sign-up/sign-up.page';
+import {ResetPasswordPage} from './tabs/non-authenticated/reset-password/reset-password.page';
 
 const routes: Routes = [
   {
@@ -21,18 +23,34 @@ const routes: Routes = [
     path: 'sign-in',
     title: 'Zaloguj się',
     component: SignInPage,
-    canActivate: [() => !inject(AppGuard).isAuthenticated()],
+    canActivate: [() => !inject(AppGuard).isAuthenticated()]
   },
   {
     path: 'my-vehicles',
     component: MyVehiclesPage,
     title: 'Moje pojazdy'
   },
+  {
+    path: 'sign-up',
+    component: SignUpPage,
+    title: 'Zarejestruj się',
+    canActivate: [() => !inject(AppGuard).isAuthenticated()],
+    outlet: 'nonAuthenticated'
+  },
+  {
+    path: 'reset-password',
+    component: ResetPasswordPage,
+    title: 'Resetuj hasło',
+    canActivate: [() => !inject(AppGuard).isAuthenticated()],
+    outlet: 'nonAuthenticated'
+  }
 ];
+
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}

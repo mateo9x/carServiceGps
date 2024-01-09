@@ -5,6 +5,7 @@ import {AuthenticationRequest} from '../models/authentication-request.model';
 import {AuthenticationApiService} from './api/authentication-api.service';
 import {StorageService} from './storage.service';
 import {Router} from '@angular/router';
+import {ToastService, ToastType} from './common/toast.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,13 +17,14 @@ export class AuthenticationService {
 
   constructor(private apiService: AuthenticationApiService,
               private storageService: StorageService,
-              private router: Router) {
+              private router: Router,
+              private toastService: ToastService) {
   }
 
   setUserOnInit() {
     const jwt = this.getToken() as string;
     if (jwt && jwt.length > 0) {
-      this.getUserByJwt(jwt);
+      this.getUserByJwt(false);
     }
   }
 
@@ -30,17 +32,17 @@ export class AuthenticationService {
     this.apiService.authenticate(authenticationRequest).subscribe({
       next: (jwtResponse) => {
         this.saveToken(jwtResponse.jwt);
-        this.getUserByJwt(jwtResponse.jwt);
+        this.getUserByJwt(true);
       }
     });
   }
 
-  private getUserByJwt(jwt: string) {
+  private getUserByJwt(firstSignInAttempt: boolean) {
     this.apiService.getUserByJwt().subscribe({
       next: (user) => {
         this.userLogged.next(user.user);
         this.saveAuthorities(user.authorities);
-        this.router.navigate(['']);
+        this.router.navigate(['']).then(() => firstSignInAttempt ? this.toastService.showToast('Zalogowano pomyślnie', ToastType.SUCCESS) : null);
       }
     });
   }
@@ -55,7 +57,7 @@ export class AuthenticationService {
         this.deleteToken();
         this.deleteAuthorities();
         this.updateUser(null);
-        this.router.navigate(['']);
+        this.router.navigate(['']).then(() => this.toastService.showToast('Wylogowano pomyślnie', ToastType.SUCCESS));
       }
     });
   }
@@ -64,6 +66,7 @@ export class AuthenticationService {
     this.deleteToken();
     this.deleteAuthorities();
     this.updateUser(null);
+    this.toastService.showToast('Zaloguj się ponownie', ToastType.WARN);
   }
 
   private saveToken(jwt: string) {

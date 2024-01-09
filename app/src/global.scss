@@ -24,3 +24,49 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+.ios body {
+  --ion-background-color: white;
+  --ion-text-color: black;
+  --ion-item-background: white;
+}
+
+body {
+   --ion-color-primary: white;
+ }
+
+ion-input {
+  width: 90vw !important;
+}
+ion-input > * {
+  width: 100% !important;
+}
+
+.error-message {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+  width: 100%;
+}
+
+.error-message > * {
+  color: #880505;
+}
+
+.nav-link {
+  color: black;
+}
+
+.button-solid {
+  --background: black;
+  --background-activated: #7a6303;
+  --background-focused: #7a6303;
+  --background-hover: #7a6303;
+  --color: white;
+}
+
+::ng-deep ion-input .native-input {
+  cursor: pointer;
+  caret-color: black;
+}

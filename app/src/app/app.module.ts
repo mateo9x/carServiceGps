@@ -15,6 +15,8 @@ import {AppGuard} from './config/app.guard';
 import {MainPage} from './tabs/authenticated/main/main.page';
 import {SideMenuPage} from './tabs/authenticated/side-menu/side-menu.page';
 import {MyVehiclesPage} from './tabs/authenticated/my-vehicles/my-vehicles.page';
+import {SignUpPage} from './tabs/non-authenticated/sign-up/sign-up.page';
+import {ResetPasswordPage} from './tabs/non-authenticated/reset-password/reset-password.page';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import {MyVehiclesPage} from './tabs/authenticated/my-vehicles/my-vehicles.page'
     SignInPage,
     MainPage,
     SideMenuPage,
-    MyVehiclesPage
+    MyVehiclesPage,
+    SignUpPage,
+    ResetPasswordPage
   ],
     imports: [
         BrowserModule,
