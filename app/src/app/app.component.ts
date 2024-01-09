@@ -17,6 +17,10 @@ export class AppComponent implements OnInit {
     this.getUser();
   }
 
+  logout() {
+    this.authenticationService.logout();
+  }
+
   private getUser() {
     this.authenticationService.setUserOnInit();
     this.authenticationService.userLogged$.subscribe({

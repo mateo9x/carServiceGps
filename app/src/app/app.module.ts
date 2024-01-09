@@ -8,18 +8,22 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {SignInPage} from './tabs/sign-in/sign-in.page';
+import {SignInPage} from './tabs/non-authenticated/sign-in/sign-in.page';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AppInterceptor} from './config/app.interceptor';
 import {AppGuard} from './config/app.guard';
-import {WelcomePage} from './tabs/welcome/welcome.page';
+import {MainPage} from './tabs/authenticated/main/main.page';
+import {SideMenuPage} from './tabs/authenticated/side-menu/side-menu.page';
+import {MyVehiclesPage} from './tabs/authenticated/my-vehicles/my-vehicles.page';
 
 @NgModule({
-    declarations: [
-      AppComponent,
-      SignInPage,
-      WelcomePage
-    ],
+  declarations: [
+    AppComponent,
+    SignInPage,
+    MainPage,
+    SideMenuPage,
+    MyVehiclesPage
+  ],
     imports: [
         BrowserModule,
         IonicModule.forRoot(),

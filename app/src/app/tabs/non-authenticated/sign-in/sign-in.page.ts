@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {SignInFormService} from './sign-in-form.service';
-import {AuthenticationService} from '../../services/authentication.service';
+import {AuthenticationService} from '../../../services/authentication.service';
 
 @Component({
   selector: 'sign-in',

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {AuthenticationRequest} from '../../models/authentication-request.model';
+import {AuthenticationRequest} from '../../../models/authentication-request.model';
 
 @Injectable({providedIn: 'root'})
 export class SignInFormService {
