@@ -6,6 +6,63 @@ import {User} from '../../../models/user.model';
   providedIn: 'root'
 })
 export class SignUpFormService {
+  private ERRORS =
+    {
+      firstName: [
+        {
+          name: 'required',
+          message: 'Pole Wymagane'
+        },
+        {
+          name: 'maxlength',
+          message: 'Maksymalnie 100 znaków'
+        }
+      ],
+      lastName: [
+        {
+          name: 'required',
+          message: 'Pole Wymagane'
+        },
+        {
+          name: 'maxlength',
+          message: 'Maksymalnie 100 znaków'
+        }
+      ],
+      email: [
+        {
+          name: 'required',
+          message: 'Pole Wymagane'
+        },
+        {
+          name: 'pattern',
+          message: 'Nieprawidłowy format email'
+        }
+      ],
+      password: [
+        {
+          name: 'required',
+          message: 'Pole Wymagane'
+        },
+        {
+          name: 'minlength',
+          message: 'Minimum 5 znaków'
+        }
+      ],
+      password2: [
+        {
+          name: 'required',
+          message: 'Pole Wymagane'
+        },
+        {
+          name: 'minlength',
+          message: 'Minimum 5 znaków'
+        },
+        {
+          name: 'passwordDoesntMatch',
+          message: 'Hasła muszą do siebie pasować'
+        }
+      ]
+    };
 
   constructor(private fb: FormBuilder) {
   }
@@ -26,6 +83,10 @@ export class SignUpFormService {
     const email = this.getEmailControl(form).value;
     const password = this.getPasswordControl(form).value;
     return new User(firstName, lastName, email, password);
+  }
+
+  getErrors() {
+  return this.ERRORS;
   }
 
   getFirstNameControl(form: FormGroup): AbstractControl {

@@ -9,6 +9,16 @@ import {UserService} from '../../../services/user.service';
 })
 export class ResetPasswordPage {
   form: FormGroup;
+  ERRORS = [
+    {
+      name: 'required',
+      message: 'Pole Wymagane'
+    },
+    {
+      name: 'pattern',
+      message: 'Nieprawidłowy format email'
+    }
+  ];
 
   constructor(private formBuilder: FormBuilder,
               private userService: UserService) {
@@ -22,11 +32,6 @@ export class ResetPasswordPage {
     if (this.form.valid) {
       this.userService.startResetPasswordProcedure(this.getEmailControl().value);
     }
-  }
-
-  hasFormError(controlName: string, errorName: string) {
-    const control = this.form.get(controlName) as AbstractControl;
-    return control.touched && control.hasError(errorName);
   }
 
   getEmailControl() {

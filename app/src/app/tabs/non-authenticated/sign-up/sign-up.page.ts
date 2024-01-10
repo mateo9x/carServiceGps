@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {AbstractControl, FormGroup} from '@angular/forms';
+import {FormGroup} from '@angular/forms';
 import {SignUpFormService} from './sign-up-form.service';
 import {Subscription} from 'rxjs';
 import {UserService} from '../../../services/user.service';
@@ -47,9 +47,8 @@ export class SignUpPage implements OnInit, OnDestroy {
     }
   }
 
-  hasFormError(controlName: string, errorName: string) {
-    const control = this.form.get(controlName) as AbstractControl;
-    return control.touched && control.hasError(errorName);
+  getErrors() {
+    return this.formService.getErrors();
   }
 
 }
