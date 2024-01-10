@@ -1,0 +1,10 @@
+<ion-item [formGroup]="parent">
+  <ion-input [type]="inputType" [label]="label" labelPlacement="floating" [formControlName]="controlName"
+             [clearOnEdit]="clearOnEdit"></ion-input>
+</ion-item>
+<ng-container *ngFor="let error of errors">
+  <div class="error-message" *ngIf="hasFormError(controlName, error.name)">
+    <ion-icon name="information-circle-outline"></ion-icon>
+    <span>{{ error.message }}</span>
+  </div>
+</ng-container>

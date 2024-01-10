@@ -4,6 +4,29 @@ import {AuthenticationRequest} from '../../../models/authentication-request.mode
 
 @Injectable({providedIn: 'root'})
 export class SignInFormService {
+  private ERRORS =
+    {
+      email: [
+        {
+          name: 'required',
+          message: 'Pole Wymagane'
+        },
+        {
+          name: 'pattern',
+          message: 'Nieprawidłowy format email'
+        }
+      ],
+      password: [
+        {
+          name: 'required',
+          message: 'Pole Wymagane'
+        },
+        {
+          name: 'minlength',
+          message: 'Minimum 5 znaków'
+        }
+      ]
+    };
 
   constructor(private formBuilder: FormBuilder) {
   }
@@ -19,6 +42,10 @@ export class SignInFormService {
     const email = this.getEmailControl(form).value;
     const password = this.getPasswordControl(form).value;
     return new AuthenticationRequest(email, password);
+  }
+
+  getErrors() {
+    return this.ERRORS;
   }
 
   private getEmailControl(form: FormGroup) {

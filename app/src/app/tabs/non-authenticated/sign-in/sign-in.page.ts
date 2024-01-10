@@ -23,9 +23,8 @@ export class SignInPage {
     }
   }
 
-  hasFormError(controlName: string, errorName: string) {
-    const control = this.form.get(controlName) as AbstractControl;
-    return control.touched && control.hasError(errorName);
+  getErrors() {
+    return this.formService.getErrors();
   }
 
 }

@@ -6,49 +6,11 @@
   </ion-header>
 
   <form [formGroup]="form">
-    <ion-item>
-      <ion-input label="Imię" formControlName="firstName" [clearOnEdit]="true" labelPlacement="floating" ></ion-input>
-    </ion-item>
-    <div class="error-message" *ngIf="hasFormError('firstName', 'required')">
-      <ion-icon name="information-circle-outline"></ion-icon>
-      <span>Pole wymagane</span>
-    </div>
-    <ion-item>
-      <ion-input label="Nazwisko" formControlName="lastName" [clearOnEdit]="true" labelPlacement="floating" ></ion-input>
-    </ion-item>
-    <div class="error-message" *ngIf="hasFormError('lastName', 'required')">
-      <ion-icon name="information-circle-outline"></ion-icon>
-      <span>Pole wymagane</span>
-    </div>
-    <ion-item>
-      <ion-input type="email" label="Email" formControlName="email" [clearOnEdit]="true" labelPlacement="floating" ></ion-input>
-    </ion-item>
-    <div class="error-message" *ngIf="hasFormError('email', 'required')">
-      <ion-icon name="information-circle-outline"></ion-icon>
-      <span>Pole wymagane</span>
-    </div>
-    <ion-item>
-      <ion-input type="password" label="Hasło" formControlName="password" [clearOnEdit]="true" labelPlacement="floating" ></ion-input>
-    </ion-item>
-    <div class="error-message" *ngIf="hasFormError('password', 'required')">
-      <ion-icon name="information-circle-outline"></ion-icon>
-      <span>Pole wymagane</span>
-    </div>
-    <div class="error-message" *ngIf="hasFormError('password', 'minlength')">
-      <ion-icon name="information-circle-outline"></ion-icon>
-      <span>Wymagane min 5 znaków</span>
-    </div>
-    <ion-item>
-      <ion-input type="password" label="Potwierdź hasło" formControlName="password2" [clearOnEdit]="true" labelPlacement="floating" ></ion-input>
-    </ion-item>
-    <div class="error-message" *ngIf="hasFormError('password2', 'required')">
-      <ion-icon name="information-circle-outline"></ion-icon>
-      <span>Pole wymagane</span>
-    </div>
-    <div class="error-message" *ngIf="hasFormError('password2', 'passwordDoesntMatch')">
-      <ion-icon name="information-circle-outline"></ion-icon>
-      <span>Hasła muszą do siebie pasować</span>
-    </div>
+    <app-input label="Imię" [parent]="form" controlName="firstName" [errors]="getErrors().firstName"></app-input>
+    <app-input label="Nazwisko" [parent]="form" controlName="lastName" [errors]="getErrors().lastName"></app-input>
+    <app-input inputType="email" label="Email" [parent]="form" controlName="email" [errors]="getErrors().email"></app-input>
+    <app-input inputType="password" label="Hasło" [parent]="form" controlName="password" [errors]="getErrors().password"></app-input>
+    <app-input inputType="password" label="Potwierdź hasło" [parent]="form" controlName="password2" [errors]="getErrors().password2"></app-input>
     <ion-button (click)="signUp()">Zarejestruj się</ion-button>
   </form>
 </ion-content>

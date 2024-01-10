@@ -4,20 +4,8 @@
   </ion-header>
 
   <form [formGroup]="form">
-    <ion-item>
-      <ion-input type="email" label="Email" labelPlacement="floating" formControlName="email" [clearOnEdit]="true" ></ion-input>
-    </ion-item>
-    <div class="error-message" *ngIf="hasFormError('email', 'required')">
-      <ion-icon name="information-circle-outline"></ion-icon>
-      <span>Pole wymagane</span>
-    </div>
-    <ion-item>
-      <ion-input type="password" labelPlacement="floating" label="Hasło" formControlName="password" [clearOnEdit]="true" ></ion-input>
-    </ion-item>
-    <div class="error-message" *ngIf="hasFormError('password', 'required')">
-      <ion-icon name="information-circle-outline"></ion-icon>
-      <span>Pole wymagane</span>
-    </div>
+    <app-input inputType="email" label="Email" [parent]="form" controlName="email" [errors]="getErrors().email"></app-input>
+    <app-input inputType="password" label="Hasło" [parent]="form" controlName="password"[errors]="getErrors().password"></app-input>
     <div class="links-container">
       <a [routerLink]="[{ outlets: { nonAuthenticated: ['sign-up'] } }]" class="nav-link">Nie posiadasz konta?
         Zarejestruj się</a>

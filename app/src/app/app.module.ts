@@ -17,6 +17,7 @@ import {SideMenuPage} from './tabs/authenticated/side-menu/side-menu.page';
 import {MyVehiclesPage} from './tabs/authenticated/my-vehicles/my-vehicles.page';
 import {SignUpPage} from './tabs/non-authenticated/sign-up/sign-up.page';
 import {ResetPasswordPage} from './tabs/non-authenticated/reset-password/reset-password.page';
+import {InputComponent} from './shared-components/input/input.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {ResetPasswordPage} from './tabs/non-authenticated/reset-password/reset-p
     SideMenuPage,
     MyVehiclesPage,
     SignUpPage,
-    ResetPasswordPage
+    ResetPasswordPage,
+    InputComponent
   ],
     imports: [
         BrowserModule,
