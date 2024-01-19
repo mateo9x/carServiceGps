@@ -23,3 +23,8 @@ ion-menu::part(container) {
 .error-toast {
   --background: #620a0a;
 }
+
+.authenticated-router {
+  margin-top: 44px;
+  height: calc(100vh - 44px);
+}

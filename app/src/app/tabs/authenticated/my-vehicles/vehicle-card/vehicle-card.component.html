@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="data-container">
+    <div class="column">
+      <span>Nazwa:</span>
+      <span>Model:</span>
+      <span>VIN:</span>
+      <span>Numer rejestracyjny:</span>
+      <span>Aktywny:</span>
+    </div>
+    <div class="column">
+      <span>{{ vehicle.brand }}</span>
+      <span>{{ vehicle.model }}</span>
+      <span>{{ vehicle.vin }}</span>
+      <span>{{ vehicle.licensePlate }}</span>
+      <span>{{ vehicle.active ? 'TAK' : 'NIE' }}</span>
+    </div>
+  </div>
+  <ion-button (click)="setAsActive()" *ngIf="!vehicle.active" class="button-solid">Ustaw jako aktywny</ion-button>
+</div>
