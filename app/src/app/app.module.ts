@@ -19,6 +19,8 @@ import {SignUpPage} from './tabs/non-authenticated/sign-up/sign-up.page';
 import {ResetPasswordPage} from './tabs/non-authenticated/reset-password/reset-password.page';
 import {InputComponent} from './shared-components/input/input.component';
 import {VehicleCardComponent} from "./tabs/authenticated/my-vehicles/vehicle-card/vehicle-card.component";
+import {MyInsurancesPage} from "./tabs/authenticated/my-insurances/my-insurances.page";
+import {InsuranceCardComponent} from "./tabs/authenticated/my-insurances/insurance-card/insurance-card.component";
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import {VehicleCardComponent} from "./tabs/authenticated/my-vehicles/vehicle-car
     SignUpPage,
     ResetPasswordPage,
     InputComponent,
-    VehicleCardComponent
+    VehicleCardComponent,
+    MyInsurancesPage,
+    InsuranceCardComponent
   ],
     imports: [
         BrowserModule,

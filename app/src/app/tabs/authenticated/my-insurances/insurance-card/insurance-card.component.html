@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="data-container">
+    <div class="column">
+      <span>Data od:</span>
+      <span>Data do:</span>
+      <span>Firma:</span>
+      <span>Assistance:</span>
+      <span>AC:</span>
+    </div>
+    <div class="column">
+      <span>{{ insurance.dateFrom }}</span>
+      <span>{{ insurance.dateTo }}</span>
+      <span>{{ insurance.company }}</span>
+      <span>{{ getBooleanValue(insurance.assistance) }}</span>
+      <span>{{ getBooleanValue(insurance.ac) }}</span>
+    </div>
+  </div>
+</div>
