@@ -1,0 +1,17 @@
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-select label-placement="fixed" placeholder="Wybierz pojazd"
+                (ionChange)="getInsuranceForVehicle($event.detail.value)">
+      <ion-select-option *ngFor="let vehicle of vehicles"
+                         [value]="vehicle.id">{{ vehicle.brand + ' ' + vehicle.model }}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ng-container *ngIf="insurances.length > 0; else noInsurances">
+    <ng-container *ngFor="let insurance of insurances" class="insurances-container">
+      <insurance-card [insurance]="insurance"></insurance-card>
+    </ng-container>
+  </ng-container>
+  <ng-template #noInsurances>
+    <h4 *ngIf="selectedVehicleId">Brak danych o ubezpieczeniu dla wybranego pojazdu</h4></ng-template>
+</ion-content>
