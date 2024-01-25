@@ -1,0 +1,17 @@
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-select label-placement="fixed" label="Wybierz pojazd"
+                (ionChange)="getInspectionsForVehicle($event.detail.value)">
+      <ion-select-option *ngFor="let vehicle of vehicles"
+                         [value]="vehicle.id">{{ vehicle.brand + ' ' + vehicle.model }}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ng-container *ngIf="inspections.length > 0; else noInspections">
+    <ng-container *ngFor="let inspection of inspections" class="inspections-container">
+      <inspection-card [inspection]="inspection"></inspection-card>
+    </ng-container>
+  </ng-container>
+  <ng-template #noInspections>
+    <h4 *ngIf="selectedVehicleId">Brak danych o przeglądach dla wybranego pojazdu</h4></ng-template>
+</ion-content>

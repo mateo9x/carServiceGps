@@ -1,0 +1,27 @@
+.card {
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.3);
+  padding: 10px 0;
+}
+
+.data-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 100%;
+  gap: 10px;
+  padding: 10px;
+}
+
+.column:nth-child(1) {
+  font-weight: bold;
+}
+
+.column:nth-child(2) {
+  align-items: flex-end;
+}

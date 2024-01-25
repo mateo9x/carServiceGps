@@ -1,6 +1,6 @@
 <ion-content [fullscreen]="true">
   <ion-item>
-    <ion-select label-placement="fixed" placeholder="Wybierz pojazd"
+    <ion-select label-placement="fixed" label="Wybierz pojazd"
                 (ionChange)="getInsuranceForVehicle($event.detail.value)">
       <ion-select-option *ngFor="let vehicle of vehicles"
                          [value]="vehicle.id">{{ vehicle.brand + ' ' + vehicle.model }}

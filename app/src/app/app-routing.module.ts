@@ -7,6 +7,7 @@ import {MyVehiclesPage} from './tabs/authenticated/my-vehicles/my-vehicles.page'
 import {SignUpPage} from './tabs/non-authenticated/sign-up/sign-up.page';
 import {ResetPasswordPage} from './tabs/non-authenticated/reset-password/reset-password.page';
 import {MyInsurancesPage} from "./tabs/authenticated/my-insurances/my-insurances.page";
+import {MyInspectionsPage} from "./tabs/authenticated/my-inspections/my-inspections.page";
 
 const routes: Routes = [
   {
@@ -36,6 +37,12 @@ const routes: Routes = [
     path: 'my-insurances',
     component: MyInsurancesPage,
     title: 'Moje ubezpieczenia',
+    canActivate: [() => inject(AppGuard).isAuthenticated()]
+  },
+  {
+    path: 'my-inspections',
+    component: MyInspectionsPage,
+    title: 'Moje przeglądy',
     canActivate: [() => inject(AppGuard).isAuthenticated()]
   },
   {
