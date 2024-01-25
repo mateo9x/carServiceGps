@@ -1,0 +1,30 @@
+<div class="card">
+  <div class="data-container">
+    <div class="column">
+      <span>Data:</span>
+      <span>Typ oleju:</span>
+      <span>Wymiana oleju:</span>
+      <span>Wymiana filtra oleju:</span>
+      <span>Wymiana filtra paliwa:</span>
+      <span>Wymiana filtra powietrza:</span>
+      <span>Wymiana filtra kabinowego:</span>
+      <span>Wymiana świec:</span>
+      <span>Dodatkowe informacje:</span>
+      <span>Przebieg przeglądu:</span>
+      <span>Przebieg następnego przeglądu:</span>
+    </div>
+    <div class="column">
+      <span>{{ inspection.date }}</span>
+      <span>{{ inspection.oilType }}</span>
+      <span>{{ getBooleanValue(inspection.oilChanged) }}</span>
+      <span>{{ getBooleanValue(inspection.oilFilterChanged) }}</span>
+      <span>{{ getBooleanValue(inspection.fuelFilterChanged) }}</span>
+      <span>{{ getBooleanValue(inspection.airFilterChanged) }}</span>
+      <span>{{ getBooleanValue(inspection.cabinFilterChanged) }}</span>
+      <span>{{ getBooleanValue(inspection.sparkPlugChanged) }}</span>
+      <span>{{ inspection.additionalInfo }}</span>
+      <span>{{ inspection.currentMileage }}</span>
+      <span>{{ inspection.nextServiceMileage }}</span>
+    </div>
+  </div>
+</div>

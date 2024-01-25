@@ -21,6 +21,8 @@ import {InputComponent} from './shared-components/input/input.component';
 import {VehicleCardComponent} from "./tabs/authenticated/my-vehicles/vehicle-card/vehicle-card.component";
 import {MyInsurancesPage} from "./tabs/authenticated/my-insurances/my-insurances.page";
 import {InsuranceCardComponent} from "./tabs/authenticated/my-insurances/insurance-card/insurance-card.component";
+import {MyInspectionsPage} from "./tabs/authenticated/my-inspections/my-inspections.page";
+import {InspectionCardComponent} from "./tabs/authenticated/my-inspections/inspection-card/inspection-card.component";
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import {InsuranceCardComponent} from "./tabs/authenticated/my-insurances/insuran
     InputComponent,
     VehicleCardComponent,
     MyInsurancesPage,
-    InsuranceCardComponent
+    InsuranceCardComponent,
+    MyInspectionsPage,
+    InspectionCardComponent
   ],
     imports: [
         BrowserModule,
