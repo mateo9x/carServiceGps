@@ -1,0 +1,17 @@
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-select label-placement="fixed" label="Wybierz pojazd"
+                (ionChange)="getExpensesForVehicle($event.detail.value)">
+      <ion-select-option *ngFor="let vehicle of vehicles"
+                         [value]="vehicle.id">{{ vehicle.brand + ' ' + vehicle.model }}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ng-container *ngIf="expenses.length > 0; else noExpenses">
+    <ng-container *ngFor="let expension of expenses" class="expenses-container">
+      <expension-card [expension]="expension"></expension-card>
+    </ng-container>
+  </ng-container>
+  <ng-template #noExpenses>
+    <h4 *ngIf="selectedVehicleId">Brak danych o wydatkach dla wybranego pojazdu</h4></ng-template>
+</ion-content>
