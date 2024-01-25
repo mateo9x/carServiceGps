@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="data-container">
+    <div class="column">
+      <span>Data:</span>
+      <span>Kwota:</span>
+      <span>Informacje:</span>
+      <span>Załączniki:</span>
+    </div>
+    <div class="column">
+      <span>{{ expension.date }}</span>
+      <span>{{ expension.amount }} PLN</span>
+      <span style="text-align: right">{{ expension.info }}</span>
+      <ng-container *ngFor="let attachment of expension.attachmentsNames">
+        <div class="attachment-container">{{ attachment | attachmentPipe }}
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

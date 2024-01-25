@@ -23,6 +23,9 @@ import {MyInsurancesPage} from "./tabs/authenticated/my-insurances/my-insurances
 import {InsuranceCardComponent} from "./tabs/authenticated/my-insurances/insurance-card/insurance-card.component";
 import {MyInspectionsPage} from "./tabs/authenticated/my-inspections/my-inspections.page";
 import {InspectionCardComponent} from "./tabs/authenticated/my-inspections/inspection-card/inspection-card.component";
+import {MyExpensesPage} from "./tabs/authenticated/my-expenses/my-expenses.page";
+import {ExpensionCardComponent} from "./tabs/authenticated/my-expenses/expension-card/expension-card.component";
+import {AttachmentPipe} from "./tabs/authenticated/my-expenses/attachment.pipe";
 
 @NgModule({
   declarations: [
@@ -38,18 +41,21 @@ import {InspectionCardComponent} from "./tabs/authenticated/my-inspections/inspe
     MyInsurancesPage,
     InsuranceCardComponent,
     MyInspectionsPage,
-    InspectionCardComponent
+    InspectionCardComponent,
+    MyExpensesPage,
+    ExpensionCardComponent
   ],
-    imports: [
-        BrowserModule,
-        IonicModule.forRoot(),
-        AppRoutingModule,
-        IonicModule,
-        CommonModule,
-        FormsModule,
-        HttpClientModule,
-        ReactiveFormsModule
-    ],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    IonicModule,
+    CommonModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    AttachmentPipe
+  ],
     providers: [
       {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
       {provide: HTTP_INTERCEPTORS, useClass: AppInterceptor, multi: true},
